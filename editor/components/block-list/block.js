@@ -440,9 +440,9 @@ export class BlockListBlock extends Component {
 		// not present, and either the block is at the extent of a selection or
 		// is the last block in the top-level list rendering.
 		const shouldShowInsertionPoint = (
-			( ! isMultiSelected && ! isLast ) ||
+			( ! isMultiSelected && ! isFirst ) ||
 			( isMultiSelected && isLastInSelection ) ||
-			( isLast && ! rootUID && ! isEmptyDefaultBlock )
+			( isFirst && ! rootUID && ! isEmptyDefaultBlock )
 		);
 
 		// Generate the wrapper class names handling the different states of the block.
@@ -493,6 +493,13 @@ export class BlockListBlock extends Component {
 				] }
 				{ ...wrapperProps }
 			>
+				{ shouldShowInsertionPoint && (
+					<BlockInsertionPoint
+						uid={ block.uid }
+						rootUID={ rootUID }
+						layout={ layout }
+					/>
+				) }
 				<BlockDropZone
 					index={ order }
 					rootUID={ rootUID }
@@ -561,13 +568,6 @@ export class BlockListBlock extends Component {
 					) }
 				</IgnoreNestedEvents>
 				{ !! error && <BlockCrashWarning /> }
-				{ shouldShowInsertionPoint && (
-					<BlockInsertionPoint
-						uid={ block.uid }
-						rootUID={ rootUID }
-						layout={ layout }
-					/>
-				) }
 				{ showSideInserter && (
 					<Fragment>
 						<div className="editor-block-list__side-inserter">
