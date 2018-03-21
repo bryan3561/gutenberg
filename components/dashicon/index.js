@@ -23,7 +23,7 @@ export default class Dashicon extends wp.element.Component {
 	}
 
 	render() {
-		const { icon, className, size = 20 } = this.props;
+		const { icon, className, size = 20, title } = this.props;
 		let path;
 
 		switch ( icon ) {
@@ -892,7 +892,9 @@ export default class Dashicon extends wp.element.Component {
 				height={ size }
 				viewBox="0 0 20 20"
 			>
-				<path d={ path } />
+				<path d={ path }>
+					{ title && <title>{ title }</title> }
+				</path>
 			</svg>
 		);
 	}
