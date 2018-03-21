@@ -439,7 +439,7 @@ export class BlockListBlock extends Component {
 
 		// Insertion point can only be made visible when the side inserter is
 		// not present, and either the block is at the extent of a selection or
-		// is the last block in the top-level list rendering.
+		// is the first block in the top-level list rendering.
 		const shouldShowInsertionPoint = (
 			( ! isMultiSelected && ! isFirst ) ||
 			( isMultiSelected && isLastInSelection ) ||
