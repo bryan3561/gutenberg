@@ -2,14 +2,14 @@
  * External Dependencies
  */
 import { parse as hpqParse } from 'hpq';
+import { pick } from 'lodash';
 
 /**
  * WordPress dependencies
  */
-import { children } from '../api/matchers';
+import { children } from '@wordpress/blocks';
 import { Component } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
-import { pick } from 'lodash';
 
 // Getter for the sake of unit tests.
 const getGalleryDetailsMediaFrame = () => {

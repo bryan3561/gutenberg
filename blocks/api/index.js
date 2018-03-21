@@ -36,3 +36,4 @@ export {
 	doBlocksMatchTemplate,
 	synchronizeBlocksWithTemplate,
 } from './templates';
+export { children } from './matchers';
